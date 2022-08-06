@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Itask6.Models.User>;
+
+
+<div class="text-center">
+    <h1 class="display-4">Fake user data generation</h1>
+</div>
+<div class="container">
+    <div class="container table-responsive py-2">
+
+        <div class="card-body d-flex flex-column">
+                <div class="row form-group  align-items-end">
+                    <div class="col-md-2">
+                        <b>Country:</b>
+                        <select id="country" onchange="updateResultCountryChange(this.value)" class="form-select">
+                            <option selected>Choose country</option>
+                            <option value="fr">France</option>
+                            <option value="pl">Poland</option>
+                            <option value="en_GB">England</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <b>Error slider:</b>
+                        <input type="range" class="custom-range" min="0" max="1000" step="0.25" value="0.5" onchange="updateResultSliderErrorChange(this.value)" id="range"/>
+                    </div>
+                    <div class="col-md-2">
+                        <b>Error number:</b>
+                        <input id="error" placeholder="Error per record" value="0" onchange="updateResultErrorChange(this.value)" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <b>Seed value:</b>
+                        <input type="number" class="form-control typeahead" onchange="updateResultSeedChange(this.value)" value="0" id="seed" name="seedNumber" placeholder="Seed" />
+                    </div>
+                    <div class="col-md-2">
+                        <button onclick="randomSeed()" class="btn btn-primary">Random seed</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button onclick="download()" class="btn btn-primary "><i class="fa fa-download"></i>Export</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container table-responsive div" id="data"  style="overflow: scroll; max-height: 700px">
+            <table id="tableData" class="table table-responsive" style="text-align: center">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Phone</th>
+                </tr>
+              </thead>
+              <tbody id="datas">
+              </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+            </div>
